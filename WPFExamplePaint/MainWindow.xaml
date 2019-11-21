@@ -1,0 +1,47 @@
+﻿<Window x:Class="WPFExamplePaint.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFExamplePaint"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <TabControl>
+            <TabItem Header="Paint">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="48*" />
+                        <RowDefinition Height="343*" />
+                    </Grid.RowDefinitions>
+                    <ToolBar Grid.Row="0" Height="50" VerticalAlignment="Top" Grid.RowSpan="2">
+                        <StackPanel Orientation="Horizontal">
+                            <RadioButton GroupName="Mode" Content="Ink Mode!" IsChecked="True" />
+                            <RadioButton GroupName="Mode" Content="Erase Mode" />
+                            <RadioButton GroupName="Mode" Content="Selection Mode!" />
+                        </StackPanel>
+                        <ComboBox Width="150" Height="40" Background="Blue">
+                            <ComboBoxItem Background="#FF019BFF" IsSelected="True">
+                                <StackPanel Orientation="Horizontal" Width="Auto">
+                                    <Ellipse Margin="30 0 0 0" Width="45" Height="30" Fill="Red"></Ellipse>
+                                    <Label VerticalAlignment="Center">Red</Label>
+                                </StackPanel>
+                            </ComboBoxItem>
+                        </ComboBox>
+                        <Button>Save Data</Button>
+                        <Button Margin="10 0 0 0">Load Data</Button>
+                        <Button Margin="10 0 0 0">Clear</Button>
+                    </ToolBar>
+                    <InkCanvas Name="inkPaint" Grid.Row="1" Margin="0,0,0,-54" />
+                </Grid>
+            </TabItem>
+            <TabItem Header="Documents">
+                <Grid>
+                    <TextBlock Text="Hello 2" />
+                </Grid>
+            </TabItem>
+            <TabItem Header="Api" />
+            <TabItem Header="DataGrid" />
+        </TabControl>
+    </Grid>
+</Window>
